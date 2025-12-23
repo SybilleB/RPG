@@ -1,4 +1,5 @@
 using System;
+using RPG.Classes.HeroClasses;
 
 public class Stats { //Attributs, utiles pour les méthodes virtuelles à override
     public int force; 
@@ -8,8 +9,7 @@ public class Stats { //Attributs, utiles pour les méthodes virtuelles à overri
     public int vitalite;
     public int chance;
 
-    public Stats()
-    {
+    public Stats() {
         force = 0;
         charisme = 0;
         intelligence = 0;
@@ -17,28 +17,46 @@ public class Stats { //Attributs, utiles pour les méthodes virtuelles à overri
         vitalite = 0;
         chance = 0;
     }
+
+    public void ajouterStats(Stats nouvelleStat) {
+        force += nouvelleStat.force;
+        charisme += nouvelleStat.charisme;
+        intelligence += nouvelleStat.intelligence;
+        agilite += nouvelleStat.agilite;
+        vitalite += nouvelleStat.vitalite;
+        chance += nouvelleStat.chance;
+    }
+
+    public void afficherStats() {
+        Console.Write("\nForce : " + force + "\nCharisme : " + charisme + "\nIntelligence : " + intelligence + 
+                      "\nAgilité : " + agilite + "\nVitalité : " + vitalite + "\nChance : " + chance + "\n");
+    }
 }
 
-public class Race
-{
+public class Race {
     public string nom;
     public string genre;
     public int poids;
     public int pv;
     public Stats stats;
 
-    public Race(Stats _stats) {
+    public Race(string _nom, string _genre, int _poids, Stats _stats) {
+        nom = _nom;
+        genre = _genre;
+        poids = _poids;
         pv = 100;
         stats = _stats;
     }
 
-    public Race(string nom, int poids) {
-        this.nom = nom;
-        this.poids = poids;
-        pv = 100;
+    public void afficherInfos() {
+        
+        Console.Write("Nom du personnage : " + nom + "\nGenre : " + genre + "\nPoids : " + poids + 
+                      " kg" + "\nPoints de vie : " + pv + "\n");
+        stats.afficherStats();
     }
 
-    public virtual Stats bonusAttributs() {
-        return new Stats();
+    public virtual bool classeAutorisee(HeroClass classe) {
+        return true;
     }
+    
 }
