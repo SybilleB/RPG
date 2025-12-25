@@ -1,4 +1,4 @@
-using RPG.Classes.HeroClasses;
+using RPG.Classes.HerosClasses;
 
 namespace RPG.Classes.Races;
 
@@ -9,9 +9,10 @@ public class Nain:Race {
         stats.vitalite += 1;
         stats.intelligence -= 1;
         stats.agilite -= 1;
+        talent = "Forgeron";
     }
     
-    public override bool classeAutorisee(HeroClass classe) {
+    public override bool classeAutorisee(HerosClasse classe) {
         if (classe is Guerrier || classe is Alchimiste || classe is Troubadour) {
             return true;
         }

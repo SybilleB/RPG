@@ -1,10 +1,10 @@
 ﻿using System;
 using RPG.Classes;
-using RPG.Classes.HeroClasses;
+using RPG.Classes.HerosClasses;
 using RPG.Classes.Races;
 
 
-
+Console.WriteLine("Bienvenue dans : Simulateur de Ramasseur Compulsif ! ");
 Nain n1 = new Nain("George", "masculin", 80);
 Humain h1 = new Humain("Julia", "feminin", 60);
 
@@ -24,5 +24,7 @@ Alchimiste a1 = new Alchimiste();
 
 Personnage p1 = new Personnage("azerty", h1, g1);
 Personnage p2 = new Personnage("azerty", n1, a1);
+
+
 p1.afficherInfosTotales();
 p2.afficherInfosTotales();

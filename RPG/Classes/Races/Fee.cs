@@ -1,4 +1,4 @@
-using RPG.Classes.HeroClasses;
+using RPG.Classes.HerosClasses;
 
 namespace RPG.Classes.Races;
 
@@ -8,9 +8,10 @@ public class Fee : Race {
         stats.agilite += 1;
         stats.chance += 1;
         stats.force -= 1;
+        talent = "Providence Ailée";
     }
     
-    public override bool classeAutorisee(HeroClass classe) {
+    public override bool classeAutorisee(HerosClasse classe) {
         if (classe is Guerrier || classe is Mage || classe is Voleur || classe is Troubadour) {
             return true;
         }

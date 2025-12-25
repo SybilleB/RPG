@@ -1,4 +1,4 @@
-using RPG.Classes.HeroClasses;
+using RPG.Classes.HerosClasses;
 
 namespace RPG.Classes.Races;
 
@@ -9,9 +9,10 @@ public class Gobelin : Race {
         stats.charisme -= 1;
         stats.intelligence -= 1;
         stats.chance -= 1;
+        talent = "Pillard";
     }
     
-    public override bool classeAutorisee(HeroClass classe) {
+    public override bool classeAutorisee(HerosClasse classe) {
         if (classe is Guerrier || classe is Voleur || classe is Troubadour) {
             return true;
         }

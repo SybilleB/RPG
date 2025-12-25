@@ -1,5 +1,5 @@
 using System;
-using RPG.Classes.HeroClasses;
+using RPG.Classes.HerosClasses;
 
 public class Stats { //Attributs, utiles pour les méthodes virtuelles à override
     public int force; 
@@ -37,15 +37,19 @@ public class Race {
     public string nom;
     public string genre;
     public int poids;
+    public int or;
     public int pv;
     public Stats stats;
+    public string talent;
 
     public Race(string _nom, string _genre, int _poids, Stats _stats) {
         nom = _nom;
         genre = _genre;
         poids = _poids;
+        or = 100;
         pv = 100;
         stats = _stats;
+        talent = "";
     }
 
     public void afficherInfos() {
@@ -55,7 +59,7 @@ public class Race {
         stats.afficherStats();
     }
 
-    public virtual bool classeAutorisee(HeroClass classe) {
+    public virtual bool classeAutorisee(HerosClasse classe) {
         return true;
     }
     
